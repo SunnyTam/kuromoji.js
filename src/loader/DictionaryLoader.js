@@ -44,7 +44,7 @@ DictionaryLoader.prototype.load = function (load_callback) {
     var loadArrayBuffer = this.loadArrayBuffer;
     var dic_path_url = function (filename) {
         var separator = '/';
-        var replace = new RegExp(separator+'{1,}', 'g');
+        var replace = new RegExp(`${separator}{1,}(?!.*${separator}{1,})`, 'g');
         var path = [dic_path, filename].join(separator).replace(replace, separator);
 
         return path;
